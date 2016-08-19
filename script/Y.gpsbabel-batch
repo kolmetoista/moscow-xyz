@@ -1,0 +1,10 @@
+# usage: gpsbabel -b <this_file_name>
+-i gpx
+-f track/polar/2016-08-05T15-21-33.983Z_Walking.gpx
+-x stack,push,copy
+-x track,stop=20160805193048,title=Y1
+-o gpx
+-F letter/Y1.gpx
+-x stack,pop
+-x track,start=20160805193049,title=Y2
+-F letter/Y2.gpx

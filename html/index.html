@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XYZ test</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        ymaps.ready(init);
+
+        var myMap;
+
+
+        function init() {
+            myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 9
+                // controls: []
+            });
+
+            var x1 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/X1.gpx';
+            var x2 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/X2.gpx';
+            var y1 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Y1.gpx';
+            var y2 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Y2.gpx';
+            var z1 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Z1.gpx';
+            var z2 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Z2.gpx';
+            var opts = { strokeColor: ['ffffff', 'aa0000'], strokeWidth: [6, 2] };
+
+            ymaps.geoXml.load(x1).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+
+            ymaps.geoXml.load(x2).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+
+            ymaps.geoXml.load(y1).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+
+            ymaps.geoXml.load(y2).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+            ymaps.geoXml.load(z1).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+            ymaps.geoXml.load(z2).then(function (res) {
+                res.geoObjects.options.set(opts);
+                myMap.geoObjects.add(res.geoObjects);
+            });
+
+            document.getElementById('map').style.width = window.innerWidth + 'px';
+            document.getElementById('map').style.height = window.innerHeight + 'px';
+            myMap.container.fitToViewport();
+        }
+
+    </script>
+    <style type="text/css">
+        * { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 100%;"></div>
+</body>
+</html>

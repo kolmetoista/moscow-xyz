@@ -12,9 +12,9 @@
 
         function init() {
             myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64],
-                zoom: 9
-                // controls: []
+                center: [55.753721, 37.619916],
+                zoom: 8,
+                controls: []
             });
 
             var x1 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/X1.gpx';
@@ -23,7 +23,7 @@
             var y2 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Y2.gpx';
             var z1 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Z1.gpx';
             var z2 = 'https://raw.githubusercontent.com/kolmetoista/moscow-xyz/master/letter/Z2.gpx';
-            var opts = { strokeColor: ['ffffff', 'aa0000'], strokeWidth: [6, 2] };
+            var opts = { strokeColor: ['ffffff', 'aa0000'], strokeWidth: [4, 2] };
 
             ymaps.geoXml.load(x1).then(function (res) {
                 res.geoObjects.options.set(opts);
